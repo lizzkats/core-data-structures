@@ -13,7 +13,6 @@ describe('LinkedList', () => {
       const listOfLinks = new LinkedList()
       listOfLinks.insert('tacos')
       listOfLinks.insert('fish')
-
       expect(listOfLinks.getHeadNode().getData()).to.equal('tacos')
     })
   })
@@ -23,7 +22,8 @@ describe('LinkedList', () => {
       const linky = new LinkedList()
       linky.insert('oneNode')
       linky.insert('twoNode')
-      expect(linky.getTailNode().data).to.equal('twoNode')
+      linky.insert('threeNode')
+      expect(linky.getTailNode().data).to.equal('threeNode')
     })
   })
 
@@ -34,6 +34,7 @@ describe('LinkedList', () => {
       magicList.insert('spells')
       magicList.insert('wands')
       expect(magicList.find('spells')).to.equal('spells')
+      expect(magicList.find('wands')).to.equal('wands')
       expect(magicList.find('dogs')).to.equal(-1)
     })
   })

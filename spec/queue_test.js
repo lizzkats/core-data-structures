@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai'
 import Queue from '../src/queue'
 
-describe.only('Queue', () => {
+describe('Queue', () => {
 
   it('exists', () => {
     expect(Queue).to.be.a('function')
@@ -11,7 +11,8 @@ describe.only('Queue', () => {
     it('adds an element to the back of the queue', () => {
       const QueueAdd = new Queue()
       QueueAdd.enqueue('max')
-      expect(QueueAdd.back.data).to.equal('max')
+      QueueAdd.enqueue('bella')
+      expect(QueueAdd.back.data).to.equal('bella')
     })
   })
 
@@ -19,6 +20,7 @@ describe.only('Queue', () => {
     it('returns and removes the front element in the queue or null if the queue is empty.', () => {
       const QueueDelete = new Queue()
       QueueDelete.enqueue('remove me')
+      QueueDelete.enqueue('middle node')
       expect(QueueDelete.front.data).to.equal('remove me')
       QueueDelete.dequeue('remove me')
       expect(QueueDelete.front).to.equal(null)
@@ -29,6 +31,7 @@ describe.only('Queue', () => {
     it('returns the front element in queue or null if the queue is empty.', () => {
       const QueueFront = new Queue()
       QueueFront.enqueue('farts')
+      QueueFront.enqueue('burps')
       expect(QueueFront.front.data).to.equal('farts')
       QueueFront.dequeue('farts')
       expect(QueueFront.front).to.equal(null)
@@ -40,7 +43,8 @@ describe.only('Queue', () => {
       const QueueBack = new Queue()
       QueueBack.enqueue('node1')
       QueueBack.enqueue('node2')
-      expect(QueueBack.back.data).to.equal('node2')
+      QueueBack.enqueue('node3')
+      expect(QueueBack.back.data).to.equal('node3')
     })
   })
 
