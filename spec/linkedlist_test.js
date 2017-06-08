@@ -2,7 +2,7 @@ import chai, { expect } from 'chai'
 import Node from '../src/node'
 import LinkedList from '../src/linkedlist'
 
-describe.only('LinkedList', () => {
+describe('LinkedList', () => {
 
   it('exists', () => {
     expect(LinkedList).to.be.a('function')
