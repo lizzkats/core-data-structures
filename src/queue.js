@@ -7,43 +7,39 @@ export default class Queue {
     this.count = 0
   }
 
-  enqueue() {
-   const node = new Node()
-   if(this.front === null){
-     this.front = node
-     this.count++
+  enqueue(data) {
+   const nodeToAdd = new Node(data)
+   if(this.isEmpty()) {
+     this.front = nodeToAdd
    }
-
-   while(this.front.next){
-     this.front.next = node
-     this.count++
-   }
+   this.back = nodeToAdd
+   this.count++
   }
+
 
   dequeue() {
     while(this.front) {
-      this.front = this.front.next
+      this.front = null
       this.count--
     }
     return null
   }
 
   front() {
-    if(this.front === null) {
-      return null
-    }
     return this.front
   }
 
   back() {
-    if(this.back === null) {
-      return null
-    }
     return this.back
   }
 
   isEmpty() {
-    if(this.count === 0) return true
+    if(this.length() > 0) {
+      return false
+    }
+    else {
+      return true
+    }
   }
 
   length() {
